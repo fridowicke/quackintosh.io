@@ -4,7 +4,7 @@ import quackintoshAvatar from "@/assets/quackintosh-duck.jpg";
 const Index = () => {
 
   return (
-    <div className="min-h-screen bg-gradient-hero px-4 sm:px-6">
+    <div className="min-h-screen bg-gradient-hero px-4 sm:px-6 flex flex-col">
       {/* Header */}
       {/* <header className="py-6 text-center">
         <div className="text-center mb-2">
@@ -22,8 +22,8 @@ const Index = () => {
       </section> */}
 
       {/* Chat Demo */}
-      <section className="pt-8 pb-8">
-        <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-colorful border border-white/20 h-[750px] max-h-[calc(100vh-8rem)] flex flex-col">
+      <section className="pt-4 pb-4 flex-1 flex flex-col justify-center">
+        <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-colorful border-2 border-gray-200/60 shadow-2xl drop-shadow-xl h-[750px] max-h-[calc(100vh-6rem)] flex flex-col">
           <div className="border-b border-border/50 p-4 flex-shrink-0">
             <div className="flex items-center gap-3">
               <img 
@@ -35,7 +35,7 @@ const Index = () => {
                 <h3 className="font-semibold text-sm text-foreground">Quackintosh</h3>
                 <p className="text-muted-foreground text-xs flex items-center gap-1">
                   <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                  KI Nachhilfe mit tutor.new • Online
+                  KI Nachhilfe mit <a href="https://tutor.new/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">tutor.new</a> • Online
                 </p>
               </div>
             </div>
@@ -46,6 +46,13 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Footer */}
+      <footer className="text-center mt-auto pb-2">
+        <p className="text-white text-sm font-medium">
+          made with <span className="text-red-400">♥</span> by <a href="https://tutor.new/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">tutor.new</a>
+        </p>
+      </footer>
     </div>
   );
 };

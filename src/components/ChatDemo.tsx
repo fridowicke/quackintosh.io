@@ -16,24 +16,35 @@ interface Message {
 const messages: Message[] = [
   {
     id: 1,
-    text: "Hi! Meine Tochter Emma ist in der 7. Klasse und hat Probleme in Mathe 😟",
+    text: "Hi! Emma hat heute mal wieder total Panik in Mathe 😟",
     isUser: true,
   },
   {
     id: 2,
-    text: "Verstehe, da helf ich euch gerne! Welches Thema macht sie gerade?",
+    text: "Oh, das kriegen wir hin! Welches Thema macht sie gerade?",
     isUser: false,
     showTyping: true,
   },
   {
     id: 3,
-    text: "Hier sind ihre Hausaufgaben - sie kommt gar nicht weiter",
+    text: "Hier sind ihre Hausaufgaben...",
     isUser: true,
     image: mathHomework,
   },
   {
+    id: 4,
+    text: "Ah, Dezimalzahlen! 🌟\n Soll unser KI-Tutor Alex das Thema in einem Videocall mit ihr üben?",
+    isUser: false,
+    showTyping: true,
+  },
+  {
+    id: 5,
+    text: "Ja, das wäre super!",
+    isUser: true,
+  },
+  {
     id: 6,
-    text: "Ah, das kriegen wir hin! 🌟 Wie wäre es für Emma eine kostenlose Nachhilfestunde mit Maya auszumachen? Wann passt es euch?",
+    text: "Toll! Wie wärs um 15:00 Uhr?",
     isUser: false,
     showTyping: true,
   },
@@ -93,7 +104,7 @@ export const ChatDemo = () => {
             delay={index * 100}
             image={message.image}
           >
-            <p className="text-sm leading-relaxed">{message.text}</p>
+            <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
           </ChatBubble>
         ))}
         
@@ -108,13 +119,13 @@ export const ChatDemo = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
               <div className="relative z-10">
                 <p className="text-gray-900 text-sm font-semibold mb-4 leading-relaxed drop-shadow-sm">
-                  Bereit für eine kostenlose Nachhilfestunde?
+                  In der Schule durchstarten?
                 </p>
                 <Button 
                   className="bg-black text-white hover:bg-gray-800 font-semibold shadow-xl text-sm w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm"
                   size="sm"
                 >
-                  Schreib mir auf WhatsApp
+                  Schreib uns auf WhatsApp
                 </Button>
               </div>
             </div>
