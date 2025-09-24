@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { ChatBubble } from "./ChatBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { Button } from "@/components/ui/button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import quackintoshAvatar from "@/assets/quackintosh-duck.jpg";
+import userAvatar from "@/assets/profile.png";
 import mathHomework from "@/assets/math-homework.jpg";
 
 interface Message {
@@ -39,15 +42,15 @@ const messages: Message[] = [
   },
   {
     id: 5,
-    text: "Ja, das wäre super!",
+    text: "Ja, das wäre super! Geht's um halb sechs?",
     isUser: true,
   },
-  {
-    id: 6,
-    text: "Toll! Wie wärs um 15:00 Uhr?",
-    isUser: false,
-    showTyping: true,
-  },
+    {
+      id: 6,
+      text: "Klar! Schick ihr einfach <link>diesen Link</link> zur Stunde!",
+      isUser: false,
+      showTyping: true,
+    },
 ];
 
 export const ChatDemo = () => {
@@ -100,16 +103,23 @@ export const ChatDemo = () => {
           <ChatBubble
             key={message.id}
             isUser={message.isUser}
-            avatar={!message.isUser ? quackintoshAvatar : undefined}
+            // avatar={message.isUser ? userAvatar : quackintoshAvatar}
             delay={index * 100}
             image={message.image}
           >
-            <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
+            <p className="text-sm leading-relaxed whitespace-pre-line" 
+               dangerouslySetInnerHTML={{
+                 __html: message.text.replace(
+                   /<link>(.*?)<\/link>/g, 
+                   '<span class="underline cursor-pointer">$1</span>'
+                 )
+               }}
+            />
           </ChatBubble>
         ))}
         
         {showTyping && (
-          <TypingIndicator avatar={quackintoshAvatar} />
+          <TypingIndicator /* avatar={quackintoshAvatar} */ />
         )}
         
         {showCTA && (
@@ -122,9 +132,10 @@ export const ChatDemo = () => {
                   In der Schule durchstarten?
                 </p>
                 <Button 
-                  className="bg-black text-white hover:bg-gray-800 font-semibold shadow-xl text-sm w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm"
+                  className="bg-[#25D366] text-white hover:bg-[#128C7E] font-semibold shadow-xl text-sm w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2"
                   size="sm"
                 >
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
                   Schreib uns auf WhatsApp
                 </Button>
               </div>

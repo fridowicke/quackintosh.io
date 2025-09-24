@@ -18,11 +18,11 @@ export const ChatBubble = ({ children, isUser = false, avatar, delay = 0, image 
       )}
       style={{ animationDelay: `${delay}ms` }}
     >
-      {!isUser && avatar && (
+      {/* {!isUser && avatar && (
         <div className="w-10 h-10 rounded-full overflow-hidden shadow-bubble flex-shrink-0">
           <img src={avatar} alt="Quackintosh" className="w-full h-full object-cover" />
         </div>
-      )}
+      )} */}
       
       <div
         className={cn(
@@ -45,11 +45,11 @@ export const ChatBubble = ({ children, isUser = false, avatar, delay = 0, image 
         </div>
       </div>
       
-      {isUser && (
-        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-secondary-foreground text-sm font-medium flex-shrink-0">
-          P
+      {/* {isUser && avatar && (
+        <div className="w-10 h-10 rounded-full overflow-hidden shadow-bubble flex-shrink-0">
+          <img src={avatar} alt="User" className="w-full h-full object-cover" />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
