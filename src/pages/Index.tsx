@@ -23,7 +23,7 @@ const Index = () => {
 
       {/* Chat Demo */}
       <section className="pt-4 pb-4 flex-1 flex flex-col justify-center">
-        <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-colorful border-2 border-gray-200/60 shadow-2xl drop-shadow-xl h-[750px] max-h-[calc(100vh-6rem)] flex flex-col">
+        <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-colorful border border-gray-700/95 shadow-2xl drop-shadow-2xl ring-1 ring-gray-600/70 h-[750px] max-h-[calc(100vh-6rem)] flex flex-col" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(75, 85, 99, 0.7)'}}>
           <div className="border-b border-border/50 p-4 flex-shrink-0">
             <div className="flex items-center gap-3">
               <img 

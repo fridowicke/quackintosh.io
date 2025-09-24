@@ -123,19 +123,19 @@ export const ChatDemo = () => {
         )}
         
         {showCTA && (
-          <div className="flex justify-center py-4 animate-slide-up">
-            <div className="bg-white/20 backdrop-blur-2xl px-6 py-5 rounded-3xl shadow-2xl border border-white/30 max-w-sm text-center relative overflow-hidden">
-              {/* Glass shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+          <div className="flex justify-center py-6 animate-slide-up">
+            <div className="bg-white/25 backdrop-blur-2xl px-8 py-7 rounded-3xl shadow-2xl border-2 border-white/40 max-w-md text-center relative overflow-hidden" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'}}>
+              {/* Enhanced glass shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none"></div>
               <div className="relative z-10">
-                <p className="text-gray-900 text-sm font-semibold mb-4 leading-relaxed drop-shadow-sm">
+                <p className="text-gray-900 text-base font-bold mb-5 leading-relaxed drop-shadow-md">
                   In der Schule durchstarten?
                 </p>
                 <Button 
-                  className="bg-[#25D366] text-white hover:bg-[#128C7E] font-semibold shadow-xl text-sm w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2"
-                  size="sm"
+                  className="bg-[#25D366] text-white hover:bg-[#128C7E] font-bold shadow-2xl text-base w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-3 py-3 drop-shadow-xl"
+                  size="lg"
                 >
-                  <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5" />
                   Schreib uns auf WhatsApp
                 </Button>
               </div>
