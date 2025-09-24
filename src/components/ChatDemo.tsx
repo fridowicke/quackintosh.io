@@ -3,12 +3,14 @@ import { ChatBubble } from "./ChatBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { Button } from "@/components/ui/button";
 import quackintoshAvatar from "@/assets/quackintosh-duck.jpg";
+import mathHomework from "@/assets/math-homework.jpg";
 
 interface Message {
   id: number;
   text: string;
   isUser: boolean;
   showTyping?: boolean;
+  image?: string;
 }
 
 const messages: Message[] = [
@@ -41,7 +43,13 @@ const messages: Message[] = [
   },
   {
     id: 6,
-    text: "Perfect! I'll work with Emma directly, using interactive examples and positive reinforcement. I make math feel like solving fun puzzles rather than scary problems. Most students see improvement within the first week! 🌟",
+    text: "Here's her homework from tonight - she's completely stuck on these word problems",
+    isUser: true,
+    image: mathHomework,
+  },
+  {
+    id: 7,
+    text: "Perfect! I can see exactly what Emma's struggling with. I'll work with her directly, using interactive examples and positive reinforcement. I make math feel like solving fun puzzles rather than scary problems. Most students see improvement within the first week! 🌟",
     isUser: false,
     showTyping: true,
   },
@@ -80,14 +88,15 @@ export const ChatDemo = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="max-w-md mx-auto">
-      <div className="h-[500px] overflow-y-auto px-4 py-6 space-y-2">
+    <div className="max-w-md mx-auto relative">
+      <div className="h-[500px] overflow-y-auto px-4 py-6 space-y-2 pb-24">
         {visibleMessages.map((message, index) => (
           <ChatBubble
             key={message.id}
             isUser={message.isUser}
             avatar={!message.isUser ? quackintoshAvatar : undefined}
             delay={index * 100}
+            image={message.image}
           >
             <p className="text-sm leading-relaxed">{message.text}</p>
           </ChatBubble>
@@ -99,8 +108,8 @@ export const ChatDemo = () => {
       </div>
 
       {showCTA && (
-        <div className="px-4 pb-6 animate-slide-up">
-          <div className="bg-gradient-warm p-6 rounded-2xl shadow-duck text-center">
+        <div className="absolute bottom-0 left-0 right-0 px-4 pb-6 animate-slide-up">
+          <div className="bg-gradient-warm p-6 rounded-2xl shadow-duck text-center backdrop-blur-sm">
             <h3 className="text-primary-foreground font-semibold mb-2">
               Ready to help your child succeed?
             </h3>

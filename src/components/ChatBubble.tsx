@@ -6,9 +6,10 @@ interface ChatBubbleProps {
   isUser?: boolean;
   avatar?: string;
   delay?: number;
+  image?: string;
 }
 
-export const ChatBubble = ({ children, isUser = false, avatar, delay = 0 }: ChatBubbleProps) => {
+export const ChatBubble = ({ children, isUser = false, avatar, delay = 0, image }: ChatBubbleProps) => {
   return (
     <div 
       className={cn(
@@ -25,13 +26,23 @@ export const ChatBubble = ({ children, isUser = false, avatar, delay = 0 }: Chat
       
       <div
         className={cn(
-          "max-w-[280px] px-4 py-3 rounded-2xl shadow-bubble",
+          "max-w-[280px] rounded-2xl shadow-bubble",
           isUser 
             ? "bg-user-bubble text-user-bubble-foreground rounded-br-md" 
-            : "bg-duck-bubble text-duck-bubble-foreground rounded-bl-md"
+            : "bg-duck-bubble text-duck-bubble-foreground rounded-bl-md",
+          image ? "overflow-hidden" : "px-4 py-3"
         )}
       >
-        {children}
+        {image && (
+          <img 
+            src={image} 
+            alt="Shared image" 
+            className="w-full h-auto rounded-t-2xl"
+          />
+        )}
+        <div className={image ? "px-4 py-3" : ""}>
+          {children}
+        </div>
       </div>
       
       {isUser && (
