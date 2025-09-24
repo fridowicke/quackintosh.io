@@ -47,7 +47,7 @@ const messages: Message[] = [
   },
     {
       id: 6,
-      text: "Klar! Schick ihr einfach <link>diesen Link</link> zur Stunde!",
+      text: "Klar! 😇  Schick ihr einfach <link>diesen Link</link> zur Stunde!",
       isUser: false,
       showTyping: true,
     },
