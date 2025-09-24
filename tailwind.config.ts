@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,6 +48,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "user-bubble": "hsl(var(--user-bubble))",
+        "user-bubble-foreground": "hsl(var(--user-bubble-foreground))",
+        "duck-bubble": "hsl(var(--duck-bubble))",
+        "duck-bubble-foreground": "hsl(var(--duck-bubble-foreground))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -80,11 +85,52 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "slide-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "bounce-gentle": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-5px)",
+          },
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+          "accordion-down": "accordion-down 0.2s ease-out",
+          "accordion-up": "accordion-up 0.2s ease-out",
+          "fade-in": "fade-in 0.3s ease-out",
+          "slide-up": "slide-up 0.4s ease-out",
+          "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
+        },
+        backgroundImage: {
+          "gradient-warm": "var(--gradient-warm)",
+          "gradient-educational": "var(--gradient-educational)",
+          "gradient-bg": "var(--gradient-bg)",
+        },
+        boxShadow: {
+          "soft": "var(--shadow-soft)",
+          "duck": "var(--shadow-duck)",
+          "bubble": "var(--shadow-bubble)",
+        },
     },
   },
   plugins: [require("tailwindcss-animate")],

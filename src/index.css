@@ -8,33 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Educational warm palette */
+    --background: 218 35% 97%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Duck-themed primary colors */
+    --primary: 45 95% 55%;
+    --primary-foreground: 45 15% 10%;
+    --primary-glow: 45 90% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Educational blue secondary */
+    --secondary: 210 75% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Soft educational tones */
+    --muted: 218 25% 92%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm accent for interactions */
+    --accent: 35 85% 65%;
+    --accent-foreground: 35 15% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 218 20% 88%;
+    --input: 218 20% 88%;
+    --ring: 45 95% 55%;
+
+    /* Chat bubble colors */
+    --user-bubble: 210 75% 60%;
+    --user-bubble-foreground: 0 0% 100%;
+    --duck-bubble: 0 0% 100%;
+    --duck-bubble-foreground: 215 25% 15%;
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(45 95% 55%) 0%, hsl(35 85% 65%) 100%);
+    --gradient-educational: linear-gradient(135deg, hsl(210 75% 60%) 0%, hsl(218 60% 70%) 100%);
+    --gradient-bg: linear-gradient(180deg, hsl(218 35% 97%) 0%, hsl(218 25% 94%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(210 75% 60% / 0.15);
+    --shadow-duck: 0 8px 30px hsl(45 95% 55% / 0.25);
+    --shadow-bubble: 0 2px 8px hsl(215 25% 15% / 0.1);
 
     --radius: 0.5rem;
 
