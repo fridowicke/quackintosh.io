@@ -8,55 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Educational warm palette */
-    --background: 218 35% 97%;
-    --foreground: 215 25% 15%;
+    /* Modern vibrant palette */
+    --background: 260 40% 98%;
+    --foreground: 260 15% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 260 15% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 260 15% 8%;
 
-    /* Duck-themed primary colors */
-    --primary: 45 95% 55%;
-    --primary-foreground: 45 15% 10%;
-    --primary-glow: 45 90% 65%;
+    /* Vibrant duck-themed primary colors */
+    --primary: 280 100% 70%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 285 100% 80%;
 
-    /* Educational blue secondary */
-    --secondary: 210 75% 60%;
+    /* Modern coral secondary */
+    --secondary: 15 100% 65%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Soft educational tones */
-    --muted: 218 25% 92%;
-    --muted-foreground: 215 15% 55%;
+    /* Soft modern tones */
+    --muted: 260 30% 95%;
+    --muted-foreground: 260 10% 50%;
 
-    /* Warm accent for interactions */
-    --accent: 35 85% 65%;
-    --accent-foreground: 35 15% 10%;
+    /* Electric blue accent */
+    --accent: 200 100% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 218 20% 88%;
-    --input: 218 20% 88%;
-    --ring: 45 95% 55%;
+    --border: 260 20% 90%;
+    --input: 260 20% 90%;
+    --ring: 280 100% 70%;
 
-    /* Chat bubble colors */
-    --user-bubble: 210 75% 60%;
+    /* Modern chat bubble colors */
+    --user-bubble: 280 100% 70%;
     --user-bubble-foreground: 0 0% 100%;
     --duck-bubble: 0 0% 100%;
-    --duck-bubble-foreground: 215 25% 15%;
+    --duck-bubble-foreground: 260 15% 8%;
 
-    /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(45 95% 55%) 0%, hsl(35 85% 65%) 100%);
-    --gradient-educational: linear-gradient(135deg, hsl(210 75% 60%) 0%, hsl(218 60% 70%) 100%);
-    --gradient-bg: linear-gradient(180deg, hsl(218 35% 97%) 0%, hsl(218 25% 94%) 100%);
+    /* Vibrant gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(280 100% 70%) 0%, hsl(15 100% 65%) 50%, hsl(45 100% 60%) 100%);
+    --gradient-educational: linear-gradient(135deg, hsl(200 100% 60%) 0%, hsl(280 100% 70%) 100%);
+    --gradient-bg: linear-gradient(135deg, hsl(260 40% 98%) 0%, hsl(280 30% 96%) 50%, hsl(200 30% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(280 100% 70%) 0%, hsl(200 100% 60%) 50%, hsl(15 100% 65%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(210 75% 60% / 0.15);
-    --shadow-duck: 0 8px 30px hsl(45 95% 55% / 0.25);
-    --shadow-bubble: 0 2px 8px hsl(215 25% 15% / 0.1);
+    /* Modern shadows with color */
+    --shadow-soft: 0 8px 32px hsl(280 100% 70% / 0.12);
+    --shadow-duck: 0 16px 48px hsl(280 100% 70% / 0.3);
+    --shadow-bubble: 0 4px 16px hsl(260 15% 8% / 0.08);
+    --shadow-colorful: 0 8px 32px hsl(200 100% 60% / 0.15);
 
     --radius: 0.5rem;
 

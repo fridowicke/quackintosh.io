@@ -88,8 +88,8 @@ export const ChatDemo = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="max-w-md mx-auto relative">
-      <div className="h-[500px] overflow-y-auto px-4 py-6 space-y-2 pb-24">
+    <div className="max-w-md mx-auto relative px-4 sm:px-0">
+      <div className="h-[500px] overflow-y-auto px-4 py-6 space-y-2 pb-24 bg-gradient-bg rounded-2xl shadow-colorful">
         {visibleMessages.map((message, index) => (
           <ChatBubble
             key={message.id}
