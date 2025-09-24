@@ -125,11 +125,13 @@ export default {
           "gradient-warm": "var(--gradient-warm)",
           "gradient-educational": "var(--gradient-educational)",
           "gradient-bg": "var(--gradient-bg)",
+          "gradient-hero": "var(--gradient-hero)",
         },
         boxShadow: {
           "soft": "var(--shadow-soft)",
           "duck": "var(--shadow-duck)",
           "bubble": "var(--shadow-bubble)",
+          "colorful": "var(--shadow-colorful)",
         },
     },
   },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChatBubble } from "./ChatBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { Button } from "@/components/ui/button";
@@ -16,40 +16,24 @@ interface Message {
 const messages: Message[] = [
   {
     id: 1,
-    text: "Hi, I'm really worried about my daughter Emma. She's in 7th grade and struggling with math. Her grades have dropped from B's to D's this semester 😟",
+    text: "Hi! Meine Tochter Emma ist in der 7. Klasse und hat Probleme in Mathe 😟",
     isUser: true,
   },
   {
     id: 2,
-    text: "I understand your concern! 🦆 I'm Quackintosh, and I help students like Emma every day. Can you tell me what specific areas of math she's finding most challenging?",
+    text: "Verstehe, da helf ich euch gerne! Welches Thema macht sie gerade?",
     isUser: false,
     showTyping: true,
   },
   {
     id: 3,
-    text: "She says algebra is really confusing, especially word problems. She gets frustrated and gives up quickly.",
-    isUser: true,
-  },
-  {
-    id: 4,
-    text: "That's very common! Word problems can be tricky because they combine reading comprehension with math skills. I use a step-by-step approach that breaks problems into smaller, manageable pieces. Would you like to see how I'd help Emma with a typical algebra word problem?",
-    isUser: false,
-    showTyping: true,
-  },
-  {
-    id: 5,
-    text: "Yes, that would be great! She has homework tonight and I feel helpless trying to explain it.",
-    isUser: true,
-  },
-  {
-    id: 6,
-    text: "Here's her homework from tonight - she's completely stuck on these word problems",
+    text: "Hier sind ihre Hausaufgaben - sie kommt gar nicht weiter",
     isUser: true,
     image: mathHomework,
   },
   {
-    id: 7,
-    text: "Perfect! I can see exactly what Emma's struggling with. I'll work with her directly, using interactive examples and positive reinforcement. I make math feel like solving fun puzzles rather than scary problems. Most students see improvement within the first week! 🌟",
+    id: 6,
+    text: "Ah, das kriegen wir hin! 🌟 Wie wäre es für Emma eine kostenlose Nachhilfestunde mit Maya auszumachen? Wann passt es euch?",
     isUser: false,
     showTyping: true,
   },
@@ -60,10 +44,18 @@ export const ChatDemo = () => {
   const [showTyping, setShowTyping] = useState(false);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [showCTA, setShowCTA] = useState(false);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when messages change, typing indicator appears, or CTA shows
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [visibleMessages, showTyping, showCTA]);
 
   useEffect(() => {
     if (currentMessageIndex >= messages.length) {
-      setTimeout(() => setShowCTA(true), 1000);
+      setTimeout(() => setShowCTA(true), 3000);
       return;
     }
 
@@ -88,8 +80,11 @@ export const ChatDemo = () => {
   }, [currentMessageIndex]);
 
   return (
-    <div className="max-w-md mx-auto relative px-4 sm:px-0">
-      <div className="h-[500px] overflow-y-auto px-4 py-6 space-y-2 pb-24 bg-gradient-bg rounded-2xl shadow-colorful">
+    <div className="h-full flex flex-col">
+      <div 
+        ref={chatContainerRef}
+        className="flex-1 overflow-y-auto px-4 py-6 space-y-2 scrollbar-hide"
+      >
         {visibleMessages.map((message, index) => (
           <ChatBubble
             key={message.id}
@@ -105,26 +100,27 @@ export const ChatDemo = () => {
         {showTyping && (
           <TypingIndicator avatar={quackintoshAvatar} />
         )}
-      </div>
-
-      {showCTA && (
-        <div className="absolute bottom-0 left-0 right-0 px-4 pb-6 animate-slide-up">
-          <div className="bg-gradient-warm p-6 rounded-2xl shadow-duck text-center backdrop-blur-sm">
-            <h3 className="text-primary-foreground font-semibold mb-2">
-              Ready to help your child succeed?
-            </h3>
-            <p className="text-primary-foreground/80 text-sm mb-4">
-              Start a free session with Quackintosh today!
-            </p>
-            <Button 
-              className="bg-white text-primary hover:bg-white/90 font-medium shadow-soft"
-              size="lg"
-            >
-              Try Quackintosh Free
-            </Button>
+        
+        {showCTA && (
+          <div className="flex justify-center py-4 animate-slide-up">
+            <div className="bg-white/20 backdrop-blur-2xl px-6 py-5 rounded-3xl shadow-2xl border border-white/30 max-w-sm text-center relative overflow-hidden">
+              {/* Glass shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+              <div className="relative z-10">
+                <p className="text-gray-900 text-sm font-semibold mb-4 leading-relaxed drop-shadow-sm">
+                  Bereit für eine kostenlose Nachhilfestunde?
+                </p>
+                <Button 
+                  className="bg-black text-white hover:bg-gray-800 font-semibold shadow-xl text-sm w-full border-0 rounded-2xl transition-all duration-300 backdrop-blur-sm"
+                  size="sm"
+                >
+                  Schreib mir auf WhatsApp
+                </Button>
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
